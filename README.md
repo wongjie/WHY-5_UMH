@@ -17,19 +17,33 @@ git clone https://github.com/wongjie/WHY-5_UMH.git
 **Navigate to the project directory**  
 cd WHY-5_UMH
 
+**Create and Activate a virtual environment**  
+python -m venv venv  
+.\venv\Scripts\activate  
+
+**Install required pacakages**  
+pip install flask  
+pip install -U spacy  
+python -m spacy download en_core_web_lg  
+pip install fitz  
+pip install PyMuPDF  
+
+**Run the file in the Virtual Environment**  
+python -m flask --app .\app.py run  
+
 ## Contributing  
 We welcome contributions from the community! If you'd like to contribute to the project, please follow these guidelines:
 
-**1) Fork the repository and create your branch.**  
+**1. Fork the repository and create your branch.**  
 git checkout -b feature/your-feature
 
-**2) Commit your changes.**  
+**2. Commit your changes.**  
 git commit -am 'Add some feature'
 
-**3) Push to your branch.**  
+**3. Push to your branch.**  
 git push origin feature/your-feature
 
-**4) Submit a pull request.**  
+**4. Submit a pull request.**  
 
 
 
