@@ -21,7 +21,7 @@ cd WHY-5_UMH
 python -m venv venv  
 .\venv\Scripts\activate  
 
-**Install required pacakages**  
+**Install required packages**  
 pip install flask  
 pip install -U spacy  
 python -m spacy download en_core_web_lg  
