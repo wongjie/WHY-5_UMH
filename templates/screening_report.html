@@ -1,0 +1,108 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<!-- Header -->
+<header style="text-align: left;">
+    <h1>Screening Report</h1>
+</header>
+
+<!-- Financial Parameters -->
+<div style="text-align: center;">
+    <h4 class="heading">Financial Parameters</h4>
+</div>
+<table class="container5" style="width: 80%;">
+    <tr>
+        <td class="label bold">Company Name:</td>
+        <td>{{ financial_data.company_name }}</td>
+    </tr>
+    <tr>
+        <td class="label bold">Financial Year End:</td>
+        <td>{{ financial_data.financial_year_end }}</td>
+    </tr>
+    <tr>
+        <td class="label bold">Market:</td>
+        <td>{{ financial_data.market }}</td>
+    </tr>
+    <tr>
+        <td class="label bold">Sector:</td>
+        <td>{{ financial_data.sector }}</td>
+    </tr>
+    <!-- Add more rows for additional financial parameters -->
+</table>
+
+<!-- Financial Ratios -->
+<div style="text-align: center;">
+    <h4 class="heading">Financial Ratios</h4>
+</div>
+<div class="container3">
+    <div class="left-column">
+        <table class="container6" style="width: 80%;">
+            <tr>
+                <td><span class="bold">Total Cash Ratio:</span></td>
+                <td>{{ financial_data.total_cash_ratio }}</td>
+            </tr>
+            <tr>
+                <td><span class="bold">Total Cash:</span></td>
+                <td>{{ financial_data.total_cash }}</td>
+            </tr>
+            <tr>
+                <td><span class="bold">Cash And Cash Equivalents Ratio:</span></td>
+                <td>{{ financial_data.cash_equivalents_ratio }}</td>
+            </tr>
+            <tr>
+                <td><span class="bold">Cash And Cash Equivalents:</span></td>
+                <td>{{ financial_data.cash_equivalents }}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="right-column">
+        <table class="container7" style="width: 80%;">
+            <!-- Add more rows for additional financial ratios -->
+        </table>
+    </div>
+</div>
+
+<!-- Business Activities Benchmarks -->
+<div style="text-align: center;">
+    <h4 class="heading">Business Activities Benchmarks</h4>
+</div>
+<div class="container9">
+    <div class="left-column">
+        <table class="container10" style="width: 80%;">
+            <tr>
+                <td><span class="bold">Non-Shariah-Compliance Principal Activities:</span></td>
+                <td>{{ financial_data.non_shariah_activities }}</td>
+            </tr>
+            <tr>
+                <td><span class="bold">5% Benchmark%:</span></td>
+                <td>{{ financial_data.benchmark_5 }}</td>
+            </tr>
+            <tr>
+                <td><span class="bold">20% Benchmark%:</span></td>
+                <td>{{ financial_data.benchmark_20 }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Company Fulfillment Status -->
+<div class="fulfillment-container" style="text-align:center">
+    <div class="fulfillment-status">
+        <h4 class="heading">Final Result</h4>
+        <table class="container8" style="width: 80%;">
+            <tr>
+                <td><span class="bold">Company Name:</span></td>
+                <td>{{ financial_data.company_name }}</td>
+            </tr>
+            <tr>
+                <td><span class="bold">Financial Ratio Benchmark:</span></td>
+                <td>{{ financial_data.financial_ratio_benchmark }}</td>
+            </tr>
+            <tr>
+                <td><span class="bold">Business Activities Benchmark:</span></td>
+                <td>{{ financial_data.business_activities_benchmark }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+{% endblock %}

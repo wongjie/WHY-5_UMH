@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_landing.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="logo" style="width: 200px; height: auto;">
+        </div>
+        <a href="{{ url_for('login') }}" class="login-btn">Log In</a>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <div class="slogan">
+            <h1>AI Inspired Data Extraction Tool from Financial Reports</h1>
+            <p>ScreenPRO: Your Reliable Screening Partner</p>
+        </div>
+        <div class="image">
+            <img src="{{ url_for('static', filename='LandingImage.png') }}" alt="Landing Picture" style="width: 500px; height: auto;">
+        </div>
+    </div>
+</body>
+</html>

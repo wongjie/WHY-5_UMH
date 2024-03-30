@@ -1,0 +1,158 @@
+<!-- dashboard.html -->
+{% extends 'layout.html' %}
+
+{% block content %}
+<!-- Header -->
+<header style="text-align: left;">
+    <h1>Dashboard</h1>
+</header>
+<div class="dashboard-container">
+    <div class="dashboard-block">
+        <h3 style="color:#23457b">Newly Classified Shariah-Compliant Companies</h3>
+        <div class="company-info">
+            <div class="company">
+                <span class="number">1.</span>
+                <div class="company-details">
+                    <p style="font-weight:bold; line-height: 0.8;  font-size:15px">MST Golf Bhd</p>
+                    <p style="color:blue; line-height: 0.0;font-size:15px">Main Market</p>
+                    <p style="color:green; line-height: 1.0;font-size:15px">Consumer Products and Services</p>
+                </div>
+                <img src="{{ url_for('static', filename='mstgolf.jpg') }}" alt="MST Golf Bhd Logo">
+            </div>
+            <div class="company">
+                <span class="number">2.</span>
+                <div class="company-details">
+                    <p style="font-weight:bold; line-height: 1.0;font-size:15px">Daythree Digital Bhd</p>
+                    <p style="color:blue; line-height: 0.0;font-size:15px">Main Market</p>
+                    <p style="color:green; line-height: 1.0;font-size:15px">Consumer Products and Services</p>
+                </div>
+                <img src="{{ url_for('static', filename='daythree.png') }}" alt="Daythree Digital Bhd Logo">
+            </div>
+            <div class="company">
+                <span class="number">3.</span>
+                <div class="company-details">
+                    <p style="font-weight:bold; line-height: 1.0;font-size:15px">Reach Energy Bhd</p>
+                    <p style="color:blue; line-height: 0.0;font-size:15px">Main Market</p>
+                    <p style="color:green; line-height: 1.0;font-size:15px">Energy</p>
+                </div>
+                <img src="{{ url_for('static', filename='reach.jpg') }}" alt="Reach Energy Bhd Logo">
+            </div>
+        </div>
+        <a href="#" class="view-more">View More ></a>
+    </div>
+    
+    <div class="dashboard-block">
+        <h3 style="color:#23457b">Top Shariah-Compliant Companies By Sector</h3>
+        <div class="company-info">
+            <div class="company">
+                <span class="number">1.</span>
+                <div class="company-details">
+                    <p style="font-weight:bold; line-height: 0.8;font-size:15px">AbleGroup Bhd</p>
+                    <p style="color:green; line-height: 1.0;font-size:15px">Industrial Products & Services</p>
+                </div>
+                <img src="{{ url_for('static', filename='ablegroup.png') }}" alt="AbleGroup Bhd Logo">
+            </div>
+            <div class="company">
+                <span class="number">2.</span>
+                <div class="company-details">
+                    <p style="font-weight:bold; line-height: 0.8;font-size:15px">Aeon Co. (M) Bhd</p>
+                    <p style="color:green; line-height: 1.0;font-size:15px">Consumer Products & Services</p>
+                </div>
+                <img src="{{ url_for('static', filename='aeon.png') }}" alt="Aeon Co. (M) Bhd Logo">
+            </div>
+            <div class="company">
+                <span class="number">3.</span>
+                <div class="company-details">
+                    <p style="font-weight:bold; line-height: 0.8;font-size:15px">BCB Bhd</p>
+                    <p style="color:green; line-height: 1.0;font-size:15px">Property</p>
+                </div>
+                <img src="{{ url_for('static', filename='bcb.png') }}" alt="BCB Bhd Logo">
+            </div>
+        </div>
+        <a href="#" class="view-more">View More ></a>
+    </div>
+    
+    <div class="dashboard-block">
+        <h3 style="color:#23457b">Best Shariah-Compliant Companies By Market</h3>
+        <div class="company-info">
+            <div class="company">
+                <span class="number">1.</span>
+                <div class="company-details">
+                    <p style="font-weight:bold; line-height: 0.8;font-size:15px">Ageson Bhd</p>
+                    <p style="color:blue; line-height: 1.0;font-size:15px">Main Market</p>
+                </div>
+                <img src="{{ url_for('static', filename='ageson.png') }}" alt="Ageson Bhd Logo">
+            </div>
+            <div class="company">
+                <span class="number">2.</span>
+                <div class="company-details">
+                    <p style="font-weight:bold; line-height: 0.8;font-size:15px">ACO Group Bhd</p>
+                    <p style="color:blue; line-height: 1.0;font-size:15px">Ace Market</p>
+                </div>
+                <img src="{{ url_for('static', filename='aco.png') }}" alt="ACO Group Bhd Logo">
+            </div>
+            <div class="company">
+                <span class="number">3.</span>
+                <div class="company-details">
+                    <p style="font-weight:bold; line-height: 0.8;font-size:15px">SEERS Bhd</p>
+                    <p style="color:blue; line-height: 1.0;font-size:15px">Leap Market</p>
+                </div>
+                <img src="{{ url_for('static', filename='seers.png') }}" alt="SEERS Bhd Logo">
+            </div>
+        </div>
+        <a href="#" class="view-more">View More ></a>
+    </div>
+</div>
+
+<!-- News Section -->
+<section>
+    <h2 style="margin-top: 30px">Latest News</h2>
+    <div class="news-container">
+        <div class="news-item">
+            <img src="{{ url_for('static', filename='news1.jpeg') }}" alt="News 1" class="news-image">
+            <div class="news-content">
+                <h3>EGX Proposes Islamic Index Methodology For Shariah Compliance Review</h3>
+                <p style="text-align: justify;">The Egyptian Exchange (EGX) has submitted a draft proposal for an Islamic Shariah-compliant index to the central Shariah supervision committee under the General Authority for Financial Supervision. The submission seeks approval for the index's alignment with Islamic Shariah principles.</p>
+            </div>
+        </div>
+        <div class="news-item">
+            <img src="{{ url_for('static', filename='new2.jpeg') }}" alt="News 2" class="news-image">
+            <div class="news-content">
+                <h3>The 99 Speedmart IPO Dilemma: Navigating The Shariah Compliance Minefield</h3>
+                <p style="text-align: justify;">The impending IPO of 99 Speedmart, a household name in the Malaysian retail industry, has sparked a fervent discussion among Muslim investors seeking to align their financial decisions with their faith.</p>
+            </div>
+        </div>
+        <div class="news-item">
+            <img src="{{ url_for('static', filename='news3.jpg') }}" alt="News 3" class="news-image" >
+            <div class="news-content">
+                <h3>Introducing Ethical Insurance: Canada’s First Shariah-Compliant Ethical Commercial Insurance Launches in Ontario</h3>
+                <p style="text-align: justify;">CHES Special Risk, a leading name in the insurance industry is proud to announce the launch of Ethical Insurance, a groundbreaking initiative aimed at redefining insurance practices with a focus on ethical values and social responsibility.</p>
+            </div>
+        </div>
+        <div class="news-item">
+            <img src="{{ url_for('static', filename='news4.jpg') }}" alt="News 4" class="news-image" >
+            <div class="news-content">
+                <h3>Wahed Debuts First Shariah-Compliant and ESG-Aware ETF on Nasdaq</h3>
+                <p style="text-align: justify;">Wahed, a financial investment company that aims to advance financial inclusion through accessible, affordable, and values-based investing, will debut the Nasdaq’s first Shariah-compliant and ESG-aware ETF.</p>
+            </div>
+        </div>
+        <div class="news-item">
+            <img src="{{ url_for('static', filename='news5.jpeg') }}" alt="News 5" class="news-image" >
+            <div class="news-content">
+                <h3>Could Crypto Be Compliant With Shariah Law? Experts Answer</h3>
+                <p style="text-align: justify;">The rise in popularity of Bitcoin and other cryptocurrencies has led to the discussion among Islamic scholars about digital currency’s compliance with Islamic canonical law. </p>
+            </div>
+        </div>
+        <div class="news-item">
+            <img src="{{ url_for('static', filename='news6.jpg') }}" alt="News 6" class="news-image" >
+            <div class="news-content">
+                <h3>Shariah-Compliant Funds Gain in Popularity and Outperform</h3>
+                <p style="text-align: justify;">Islamic Shariah-compliant mutual funds and ETFs have become popular investment options for Muslim investors around the world. However, non-Muslim investors can also benefit from Shariah-compliant funds because their values-based approaches overlap with environmental, social, and governance (ESG) factors. </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Include the JavaScript file -->
+<script src="{{ url_for('static', filename='darkmode.js') }}"></script>
+{% endblock %}

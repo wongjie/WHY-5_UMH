@@ -1,0 +1,124 @@
+/* Reset default styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+}
+
+.left-side {
+    flex: 1;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.welcome-text {
+    margin-bottom: 20px; /* Add margin between "Nice to see you again" and "Welcome Back" */
+    text-align: left;
+}
+
+.welcome-text p:first-child {
+    margin-bottom: 20px; /* Add margin after the first paragraph */
+}
+
+.welcome-color {
+    color: #FF9900; /* Change to the desired color for "Welcome Back" */
+}
+.left-side img {
+    width: 200px;
+    margin-bottom: 80px;
+}
+
+.right-side {
+    flex: 1;
+    background-color: #0a3466;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content to the top */
+    align-items: center;
+    padding: 20px;
+    color: #fff;
+}
+
+.header {
+    margin-bottom: 20px; /* Add margin at the bottom of the header */
+    margin-top: 80px;
+    padding: 20px; /* Add padding to the header */
+    text-align: center; /* Center-align text */
+}
+
+.header h2 {
+    margin-bottom: 20px; /* Add margin below the h2 element */
+    text-align: left; /* Align the text to the left */
+}
+
+
+
+.header p {
+    margin-bottom: 0; /* Remove margin from the paragraph */
+}
+
+.login-form {
+    width: 100%;
+    max-width: 300px;
+}
+
+.login-form input {
+    width: 100%; /* Adjusting for padding */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px; /* Add margin at the bottom of the form */
+    border: none;
+    border-radius: 5px;
+    background-color: #ff9900;
+    color: #fff;
+    cursor: pointer;
+}
+
+.login-form label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%; /* Ensure label takes full width */
+}
+
+.checkbox-container {
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    width: 100%;
+}
+
+
+.checkbox-container input[type="checkbox"] {
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
+    margin-right: 5px; /* Add some spacing between the checkbox and the label text */
+}
+
+.checkbox-container label {
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
+    margin-left: 0px; /* Adjust the margin to align with the "Log In" text */
+}
+

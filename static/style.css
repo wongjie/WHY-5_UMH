@@ -1,0 +1,447 @@
+/* style.css */
+
+/* Body */
+body {
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #23457b;
+    color: #fff;
+}
+
+p {
+    font-size: 20px; /* Adjust the font size as needed */
+    line-height: 1.5; /* Optional: Adjust the line height for better readability */
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #f0f0f0;
+    padding-top: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+}
+
+.sidebar ul li a {
+    color: #0a3466;
+    text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+    color: #ffc107;
+}
+
+/* Content */
+.content {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+/* Header */
+h1 {
+    color: #fff;
+}
+
+/* Form */
+form {
+    margin-top: 20px;
+}
+
+input[type="file"] {
+    margin-bottom: 10px;
+}
+
+.btn-secondary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    width: 100px;
+    padding: 8px 16px; /* Adjust padding to make the button smaller */
+    cursor: pointer;
+}
+
+
+.btn-secondary:hover {
+    background-color: #0056b3;
+}
+
+/* Image */
+.sidebar img {
+    width: 500px;
+    height: auto;
+}
+
+.light-row {
+    background-color: #f9f9f9; /* Lighter color for alternate rows */
+}
+
+.dark-row {
+    background-color: #e0e0e0; /* Darker color for alternate rows */
+}
+
+/* Container */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Sections */
+.section {
+    margin-bottom: 20px;
+}
+
+/* Form */
+form {
+    display: grid;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Dark Mode Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #007bff;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* style.css */
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    color: #000;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr.odd {
+    background-color: #ffffff; /* Alternate row color 1 */
+}
+
+tr.even {
+    background-color: #f9f9f9; /* Alternate row color 2 */
+}
+
+/* Dark Mode */
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    width: 200px;
+    padding: 8px 16px; /* Adjust padding to make the button smaller */
+    cursor: pointer;
+}
+
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Table styles for dark mode */
+.dark-mode table {
+    border-color: #fff; /* Change border color */
+}
+
+.dark-mode th,
+.dark-mode td {
+    border-color: #fff; /* Change border color */
+    background-color: #444; /* Change background color */
+    color: #fff; /* Change text color */
+}
+
+/* Dashboard block styles for dark mode */
+.dark-mode .dashboard-block {
+    background-color: #444; /* Change background color */
+    color: #fff; /* Change text color */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Change box shadow color */
+}
+
+/* Link color for dark mode */
+.dark-mode a {
+    color: #ffc107; /* Change link color */
+}
+
+/* User Guide Steps */
+.step-frame {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.step-image {
+    margin-right: 20px; /* Add margin to create space between image and text */
+    width: 200px;
+    height: auto;
+}
+
+.step-text {
+    flex: 1; /* Allow text to take up remaining space */
+}
+
+/* Add custom CSS for aligning the title to the left */
+header {
+    text-align: left;
+    padding-left: 20px; /* Add left padding for better alignment */
+}
+
+/* Sidebar */
+.dark-mode .sidebar {
+    background-color: #444;
+}
+
+.dark-mode .sidebar ul li a {
+    color: #f0f0f0;
+    text-decoration: none;
+}
+
+.dark-mode .sidebar ul li a:hover {
+    color: #ffc107;
+}
+
+.dark-mode .sidebar img {
+    background-color: #ccc;
+}
+
+/* Add these styles to your existing CSS file */
+.news-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Distribute items evenly across the row */
+}
+
+.news-item {
+    width: calc(30% - 20px); /* Adjust width to fit three items in one row */
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    color: #000;
+}
+
+.news-item:hover {
+    transform: translateY(-2px);
+    background-color: #d7d7d7;
+}
+
+.news-image {
+    width: 100%; /* Make the image fill the entire width of the news item */
+    height: 150px;
+    margin-bottom: 2px; /* Add margin to separate image from content */
+}
+
+.news-content {
+    padding: 0 5px; /* Add padding to content for better spacing */
+    flex-grow: 1;
+}
+
+.btn-primary {
+    background-color: #ffad31; /* Change the background color to your desired color */
+    color: #000; /* Text color */
+    border: none;
+    width: 180px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font: 1em sans-serif;
+}
+
+.btn-primary:hover {
+    background-color: #fea828; /* Change the background color on hover */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 550px; /* Change this value to adjust the width */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Dark Mode Input Fields */
+.dark-mode input[type="text"],
+.dark-mode input[type="email"],
+.dark-mode input[type="password"] {
+    background-color: #444; /* Change background color of input fields */
+    color: #fff; /* Change text color of input fields */
+    border-color: #666; /* Change border color of input fields */
+    width: 550px;
+}
+
+/* Dark Mode Switch */
+.dark-mode .switch input:checked + .slider {
+    background-color: #ffad31; /* Change background color of the slider */
+}
+
+/*dashboard*/
+.company {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    position: relative;
+    border: 1px solid #494949;
+    border-radius: 5px;
+    padding: 5px;
+    width: 95%;
+    height: 100px;
+}
+
+.company:hover {
+    background-color: #e3e3e3;
+}
+
+.number {
+    margin-right: 10px;
+    top: 5px;
+    left: 5px;
+    position: absolute;
+}
+
+.dashboard-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard-block {
+    width: 33%; /* 20px padding on each side */
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 30px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #000;
+    position: relative;
+    margin: 5px;
+}
+
+.view-more {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: blue;
+    text-decoration: none;
+}
+
+.view-more:hover {
+    text-decoration: underline;
+}
+
+.company-details {
+    flex-grow: 1;
+    margin-left: 15px;
+    padding: 0px;
+}
+
+.company img {
+    width: 80px;
+    height: auto;
+    margin-left: 5px;
+    margin-right: 3px;
+}
+
+.side_element:hover{
+    background-color: #ffad31;
+    border-radius: 5px;
+    width: 80%;
+    text-decoration: none;
+}
+
+.side_element a{
+    text-decoration: none;
+}
+
+.side_element:hover a {
+    color: white; /* Change text color to white when hovered */
+    text-decoration: none; /* Remove underline when hovered */
+}

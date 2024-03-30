@@ -1,0 +1,146 @@
+/* Define a CSS class for the container of the screening report */
+
+/* Center-align text and add frame */
+.upload-container {
+    text-align: center;
+    display: flex;
+    padding: 20px;
+    border: 2px dashed #ccc;  
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 90%; /* Adjusted width */
+    position: relative; /* Make the container position relative */
+    color: #fff;
+}
+/* Lighter text */
+.light {
+    color: #fff;
+    margin-left: 220px;
+}
+/* Style for the dropfile image */
+.dropfile-img {
+    position: absolute; /* Position the image within the container */
+    top: 40%; /* Align the image vertically */
+    left: 50%; /* Align the image horizontally */
+    transform: translate(-50%, -50%); /* Center the image */
+    width: 150px; /* Adjust the width of the image */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 1; /* Ensure the image is above other elements */
+    margin-bottom: 80px;
+}
+/* Style for input and button */
+.file-input {
+    margin-top: 150px; /* Add margin to create space between elements */
+    margin-left: 300px;
+}
+/* Style for inline elements */
+.inline {
+    display: inline-block; /* Make elements display inline */
+    margin-right: 20px; /* Add margin between inline elements */
+}
+/* Style for bold text */
+.bold {
+    font-weight: bold; /* Make text bold */
+}
+
+/* Style for headings */
+.heading {
+    font-size: 1.2em; /* Adjust the font size as needed */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Style for labels */
+.label {
+    font-weight: bold;
+}
+
+/* Style for table containers */
+.container4,
+.container5,
+.container6,
+.container7,
+.container8 {
+    width: 80%; /* Set the width of the table containers to 80% */
+    margin: 0 auto; /* Center-align the tables */
+    text-align: left; /* Align table content to the left */
+    margin-bottom: 20px; /* Adjusted margin-bottom */
+    color: #000;
+    border: 1px solid #000;
+    border-collapse: collapse;
+}
+
+/* Style for bold labels within tables */
+.bold {
+    font-weight: bold;
+}
+
+/* Style for table columns */
+.container4 td,
+.container5 td,
+.container6 td,
+.container7 td,
+.container8 td {
+    width: 30%;
+    border: 1px solid #000;
+    border-collapse: collapse;
+}
+
+/* Define a CSS class for the container of the screening report */
+#screening-report {
+    width: 90%;
+    background-color: #fff; /* Set background color to white */
+    margin: 20px auto;
+    padding: 10px;
+    color: #000;
+}
+
+/* Style for the left column */
+.container4 td:first-child,
+.container5 td:first-child,
+.container6 td:first-child,
+.container7 td:first-child,
+.container8 td:first-child {
+    background-color: #f0f0f0; /* Light gray background */
+    border-collapse: collapse;
+}
+
+/* Define styles for the button */
+button.generate-report-btn {
+    background-color: #ffad31; /* Green background */
+    color: white; /* White text */
+    padding: 5px; /* Add padding */
+    font-size: 16px; /* Increase font size */
+    border: none; /* Remove border */
+    cursor: pointer; /* Add cursor pointer on hover */
+    border-radius: 5px; /* Add border radius */
+    width: 150px;
+    height: 30px;
+    margin-left: 15px;
+}
+
+/* Hover effect for the button */
+button.generate-report-btn:hover {
+    background-color: #ff9e0e; /* Darker green */
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: left; /* Adjust text alignment if needed */
+    border-collapse: collapse;
+}
+
+/* Additional styling for table headers if needed */
+th {
+    background-color: #f0f0f0; /* Light gray background for headers */
+    font-weight: bold; /* Bold font for headers */
+    border-collapse: collapse;
+}
+

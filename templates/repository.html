@@ -1,0 +1,154 @@
+<!-- repository.html -->
+
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<!-- Header -->
+<header style="text-align: left;">
+    <h1>Repository</h1>
+</header>
+    
+     <!-- Search and Filter Row -->
+    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+        <!-- Search Box with Search Button -->
+        <div style="display: flex;">
+            <input type="text" id="searchBox" placeholder="Search..." style="width: 200px;">
+            <button id="searchButton">Search</button>
+        </div>
+        
+        <!-- Filter Dropdowns with Filter Buttons -->
+        <div style="display: flex; align-items: center; margin-left: 10px;">
+            <div style="margin-right: 10px; display: flex;">
+                <select id="filterDropdown" style="width: 150px; height: 34px;">
+                    <option value="" selected disabled>Filter by Market</option>
+                    <option value="all">All Markets</option>
+                    <option value="Main Market">Main Market</option>
+                    <option value="Ace Market">Ace Market</option>
+                    <option value="Leap Market">Leap Market</option>
+                </select>
+                <button id="filterButton" style="height:34px;">Filter</button>
+            </div>
+
+            <div style="display: flex;">
+                <select id="filterDropdown2" style="width: 150px; height: 34px;">
+                    <option value="" selected disabled>Filter by Sector</option>
+                    <option value="all">All Sectors</option>
+                    <option value="Industrial Products and Services">Industrial Products and Services</option>
+                    <option value="Consumer Products and Services">Consumer Products and Services</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Property">Property</option>
+                    <option value="Construction">Construction</option>
+                    <option value="Plantation">Plantation</option>
+                    <option value="Transportation and Logistics">Transportation and Logistics</option>
+                    <option value="Enerygy">Energy</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Telecommunication and Media">Telecommunication and Media</option>
+                    <option value="Utilities">Utilities</option>
+                    <option value="Financial Services">Financial Services</option>
+                    
+                    <!-- Add more sectors as needed -->
+                </select>
+                <button id="filterButton2" style="height:34px;">Filter</button>
+            </div>
+        </div>
+    </div>
+    
+    <table id="companyTable">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Company Name</th>
+                <th>Market</th>
+                <th>Sector</th>
+                <th>Annual Report</th>
+                <th>Audited Accounts Report</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% set row_color = {'odd': '#ffffff', 'even': '#f9f9f9'} %}
+            {% for company in companies %}
+            {% if loop.index % 2 == 0 %}
+            <tr style="background-color: {{ row_color['even'] }}">
+            {% else %}
+            <tr style="background-color: {{ row_color['odd'] }}">
+            {% endif %}
+                <td>{{ loop.index }}</td>
+                <td>{{ company.name }}</td>
+                <td>{{ company.market }}</td>
+                <td>{{ company.sector }}</td>
+                <td><a href="{{ url_for('uploaded_file', filename=company.annual_report) }}">Download</a></td>
+                <td><a href="{{ url_for('uploaded_file', filename=company.audited_accounts_report) }}">Download</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script src="{{ url_for('static', filename='darkmode.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchBox = document.getElementById('searchBox');
+            const filterDropdown = document.getElementById('filterDropdown');
+            const filterDropdown2 = document.getElementById('filterDropdown2');
+            const searchButton = document.getElementById('searchButton');
+            const filterButton = document.getElementById('filterButton');
+            const filterButton2 = document.getElementById('filterButton2');
+            const companyTable = document.getElementById('companyTable');
+            const rows = companyTable.getElementsByTagName('tr');
+
+            searchButton.addEventListener('click', function() {
+                applySearch();
+            });
+
+            filterButton.addEventListener('click', function() {
+                applyFilter();
+            });
+
+            filterButton2.addEventListener('click', function() {
+                applyFilter2();
+            });
+
+            function applySearch() {
+                const searchText = searchBox.value.toLowerCase();
+
+                for (let i = 1; i < rows.length; i++) {
+                    const name = rows[i].getElementsByTagName('td')[1].textContent.toLowerCase();
+                    const sector = rows[i].getElementsByTagName('td')[2].textContent.toLowerCase();
+
+                    if (name.includes(searchText) || sector.includes(searchText)) {
+                        rows[i].style.display = '';
+                    } else {
+                        rows[i].style.display = 'none';
+                    }
+                }
+            }
+
+            function applyFilter() {
+                const selectedMarket = filterDropdown.value;
+
+                for (let i = 1; i < rows.length; i++) {
+                    const market = rows[i].getElementsByTagName('td')[2].textContent.toLowerCase();
+
+                    if (selectedMarket === 'all' || market === selectedMarket.toLowerCase()) {
+                        rows[i].style.display = '';
+                    } else {
+                        rows[i].style.display = 'none';
+                    }
+                }
+            }
+
+            function applyFilter2() {
+                const selectedSector = filterDropdown2.value;
+
+                for (let i = 1; i < rows.length; i++) {
+                    const sector = rows[i].getElementsByTagName('td')[3].textContent.toLowerCase();
+
+                    if (selectedSector === 'all' || sector === selectedSector.toLowerCase()) {
+                        rows[i].style.display = '';
+                    } else {
+                        rows[i].style.display = 'none';
+                    }
+                }
+            }
+        });
+    </script>
+{% endblock %}

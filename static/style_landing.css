@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+    color: white;
+}
+
+.logo {
+    width: 100px; /* Adjust the width as needed */
+    margin-left: 60px;
+    margin-top: 10px;
+}
+
+.login-btn {
+    padding: 10px 20px;
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 50px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.slogan {
+    flex: 1;
+    margin-top: 0px;
+    margin-left: 40px;
+    margin-bottom: 100px;
+}
+
+.slogan h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.slogan p {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.learn-more-btn {
+    padding: 10px 20px;
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.image {
+    flex: 1;
+    text-align: center;
+}
+
+.image img {
+    max-width: 100%;
+    height: auto;
+}

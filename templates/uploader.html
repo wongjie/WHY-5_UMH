@@ -1,0 +1,542 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<!-- Header -->
+<header style="text-align: left;">
+    <h1>Report Generator</h1>
+</header>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_uploader.css') }}">
+    <title>PDF Uploader</title>
+    
+</head> 
+<body>
+    <div class="upload-container">
+        <img src="{{ url_for('static', filename='dropfile.png') }}" alt="Dropfile" class="dropfile-img"> <!-- Add the dropfile image -->
+        <div class="upload-container2">
+            <p class="light">Drag and drop PDF here </p> <!-- Add text after the file input -->
+            <form id="upload-form" enctype="multipart/form-data" class="file-input">
+                <input type="file" id="file-input" name="file" accept=".pdf" required>
+                <button onclick="generateReport(event)" type="submit" id="generate-report-btn" class="generate-report-btn">Generate Report</button>
+            </form>
+            
+        </div>
+    </div>
+    
+    <!-- Add additional content for screening report -->
+    <div id="screening-report" class="frame" style=" width: 90%; text-align: center";> <!-- Adjusted margin-bottom -->
+        <h2 style="text-align:center">Screening Report</h2>
+        <!-- Container for the content -->
+        <table class="container4" style="width: 80%;">
+            <tr>
+                <td class="label bold">Company Name:</td>
+                <td id="companyname"></td>
+            </tr>
+            <tr>
+                <td class="label bold">Financial Year End:</td>
+                <td id="financialyearend"></td>
+            </tr>
+            <tr>
+                <td class="label bold">Market:</td>
+                <td id="market"></td>
+            </tr>
+            <tr>
+                <td class="label bold">Sector:</td>
+                <td id="sector"></td>
+            </tr>
+        </table>
+
+        <!-- Financial Parameters -->
+        <div style="text-align: center;"> <!-- Adjusted margin-bottom -->
+            <h4 class="heading">Financial Parameters</h4>
+        </div>
+        <table class="container5" style="width: 80%;">
+            <tr>
+                <td class="label bold">Group Revenue:</td>
+                <td id="GroupRevenue"></td>
+            </tr>
+            <tr>
+                <td class="label bold">Group Profit/(Loss) Before Tax:</td>
+                <td id="ProfitLossBeforeTax"></td>
+            </tr>
+            <tr>
+                <td class="label bold">Total Assets:</td>
+                <td id="TotalAssets"></td>
+            </tr>
+        </table>
+    
+        <!-- Financial Ratios -->
+        <div style="text-align: center;"> <!-- Adjusted margin-bottom -->
+            <h4 class="heading">Financial Ratios</h4>
+            
+        </div>
+
+        
+        <div class="container3">
+            <div class="left-column">
+                <table class="container6" style="width: 80%;">
+                    <tr>
+                        <td><span class="bold">Total Cash Ratio:</span></td>
+                        <td id="TotalCashRatio"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="bold">Total Cash:</span></td>
+                        <td id="TotalCashAmount"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="bold">Cash And Cash Equivalents Ratio:</span></td>
+                        <td id="CashandCashEquivalentRatio"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="bold">Cash And Cash Equivalents:</span></td>
+                        <td id="CashandCashEquivalentAmount"></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="right-column">
+                <table class="container7" style="width: 80%;">
+                    <tr>
+                        <td><span class="bold">Total Debt Ratio:</span></td>
+                        <td id="TotalDebtRatio"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="bold">Total Debt:</span></td>
+                        <td id="TotalDebtAmount"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="bold">Loan And Borrowing Ratio:</span></td>
+                        <td id="LoanandBorrowingRatio"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="bold">Loan And Borrowing:</span></td>
+                        <td id="LoanandBorrowingRatioAmount"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="bold">Lease Liabilities Ratio:</span></td>
+                        <td id="LeaseLiabilityRatio"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="bold">Lease Liabilities:</span></td>
+                        <td id="LeaseLiabilityAmount"></td>
+                    </tr>
+                </table>
+            </div>
+            
+            
+        </div>
+
+        <!-- Financial Ratios -->
+        <div style="text-align: center;"> <!-- Adjusted margin-bottom -->
+            <h4 class="heading">Business Activities Benchmarks</h4>
+        </div>
+
+        
+        <div class="container9">
+            <div class="left-column">
+                <table class="container10" style="width: 80%;">
+                    <tr>
+                        <td><span class="bold">Non-Shariah-Compliance Principal Activities:</span></td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td><span class="bold">5% Benchmark%:</span></td>
+                        <td id="conditionfulfilled"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="bold">20% Benchmark%:</span></td>
+                        <td id="conditionfulfilled2"></td>
+                    </tr>
+                </table>
+            </div>
+            
+            
+            
+        </div>
+
+        <!-- Company Fulfillment Status -->
+        <div class="fulfillment-container" style="text-align:center">
+            <div class="fulfillment-status">
+                <h4 class="heading">Final Result</h4>
+                <table class="container8" style="width: 80%;">
+                    <tr>
+                        <td><span class="bold">Company Name:</span></td>
+                        <td id="companyname2"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="bold">Financial Ratio Benchmark:</span></td>
+                        <td id="conditionfulfilled3"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="bold">Business Activities Benchmark:</span></td>
+                        <td id="conditionfulfilled4"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <style>
+            /* Define a CSS class for the container of the screening report */
+
+/* Center-align text and add frame */
+.upload-container {
+    text-align: center;
+    display: flex;
+    padding: 20px;
+    border: 2px dashed #ccc;  
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 90%; /* Adjusted width */
+    position: relative; /* Make the container position relative */
+    color: #fff;
+}
+/* Lighter text */
+.light {
+    color: #fff;
+    margin-left: 220px;
+}
+/* Style for the dropfile image */
+.dropfile-img {
+    position: absolute; /* Position the image within the container */
+    top: 40%; /* Align the image vertically */
+    left: 50%; /* Align the image horizontally */
+    transform: translate(-50%, -50%); /* Center the image */
+    width: 150px; /* Adjust the width of the image */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 1; /* Ensure the image is above other elements */
+    margin-bottom: 80px;
+}
+/* Style for input and button */
+.file-input {
+    margin-top: 150px; /* Add margin to create space between elements */
+    margin-left: 300px;
+}
+/* Style for inline elements */
+.inline {
+    display: inline-block; /* Make elements display inline */
+    margin-right: 20px; /* Add margin between inline elements */
+}
+/* Style for bold text */
+.bold {
+    font-weight: bold; /* Make text bold */
+}
+
+/* Style for headings */
+.heading {
+    font-size: 1.2em; /* Adjust the font size as needed */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Style for labels */
+.label {
+    font-weight: bold;
+}
+
+/* Style for table containers */
+.container4,
+.container5,
+.container6,
+.container7,
+.container8,
+.container10 {
+    width: 80%; /* Set the width of the table containers to 80% */
+    margin: 0 auto; /* Center-align the tables */
+    text-align: left; /* Align table content to the left */
+    margin-bottom: 20px; /* Adjusted margin-bottom */
+    color: #000;
+    border: 1px solid #000;
+    border-collapse: collapse;
+}
+
+/* Style for bold labels within tables */
+.bold {
+    font-weight: bold;
+}
+
+/* Style for table columns */
+.container4 td,
+.container5 td,
+.container6 td,
+.container7 td,
+.container8 td,
+.container10 td {
+    width: 30%;
+    border: 1px solid #000;
+    border-collapse: collapse;
+    color: #000;
+}
+
+/* Define a CSS class for the container of the screening report */
+#screening-report {
+    width: 90%;
+    text-align: center;
+    background-color: #fff; /* Set background color to white */
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px;
+    color: #000;
+}
+
+/* Style for the left column */
+.container4 td:first-child,
+.container5 td:first-child,
+.container6 td:first-child,
+.container7 td:first-child,
+.container8 td:first-child,
+.container10 td:first-child {
+    background-color: #f0f0f0; /* Light gray background */
+    border-collapse: collapse;
+}
+
+.container4 td:nth-child(2),
+.container5 td:nth-child(2),
+.container6 td:nth-child(2),
+.container7 td:nth-child(2),
+.container8 td:nth-child(2),
+.container10 td:nth-child(2) {
+    background-color: #fff; 
+    border-collapse: collapse;
+}
+
+/* Define styles for the button */
+button.generate-report-btn {
+    background-color: #ffad31; /* Green background */
+    color: white; /* White text */
+    padding: 5px; /* Add padding */
+    font-size: 16px; /* Increase font size */
+    border: none; /* Remove border */
+    cursor: pointer; /* Add cursor pointer on hover */
+    border-radius: 5px; /* Add border radius */
+    width: 150px;
+    height: 30px;
+    margin-left: 15px;
+}
+
+/* Hover effect for the button */
+button.generate-report-btn:hover {
+    background-color: #ff9e0e; /* Darker green */
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: left; /* Adjust text alignment if needed */
+    border-collapse: collapse;
+}
+
+/* Additional styling for table headers if needed */
+th {
+    background-color: #f0f0f0; /* Light gray background for headers */
+    font-weight: bold; /* Bold font for headers */
+    border-collapse: collapse;
+}
+
+
+        </style>
+
+    </div>
+
+    <button onclick="downloadPDF()"  style="margin-left:35px">Download as PDF</button>
+
+
+</body>
+</html>
+
+<script src="{{ url_for('static', filename='darkmode.js') }}"></script>
+
+<script>
+    function generateReport(event) {
+        event.preventDefault();
+        // Get the PDF file input element
+        var fileInput = document.getElementById('file-input');        
+        console.log(fileInput);
+        // Get the selected file
+        var file = fileInput.files[0];
+        // print (file.pdf)
+        // Check if a file is selected
+        if (file) {
+            console.log("hi");
+            // Print the file path
+            console.log("Selected file path:", file.name);
+
+            var companies = [
+                { name: "IGBB Audited Financial Statements FY2020 (part 1).pdf", sector: "Property", market: "-" },
+                { name: "genting.pdf", sector: "Consumer Products and Services", market: "-" },
+                { name: "malpac AAR (1).pdf", sector: "Plantation", market: "-" },
+                { name: "wce AAR (1).pdf", sector: "Construction", market: "-" },
+                { name: "bumi AAR.pdf", sector: "Energy", market: "-" },
+                { name: "HapSeng AAR (1).pdf", sector: "Industrial Products & Services", market: "-" },
+                { name: "supermax AAR.pdf", sector: "Health care", market: "-" }
+            ];
+
+
+            //Get the company name from financial_metrics['Company Name']
+            var company_name = file.name;
+            console.log(company_name);
+
+            // Search for the company in the list
+            var company_info = null;
+            for (var i = 0; i < companies.length; i++) {
+                console.log(companies[i]['name'], company_name)
+                if (companies[i]['name'] === company_name) {
+                    
+                    company_info = companies[i];
+                    break;
+                }
+            }
+
+            // Pass the company's sector and market back to the HTML template
+            var sector, market;
+            if (company_info !== null) {
+                sector = company_info['sector'];
+                market = company_info['market'];
+            } else {
+                sector = null;
+                market = null;
+            }
+            //console.log(sector, market);
+
+
+
+
+
+
+            // print("hi")
+            
+            // Create FormData object to send the file
+            var formData = new FormData();
+            formData.append('file', file);
+            
+            // Send AJAX request to the server
+            var xhr = new XMLHttpRequest();
+            
+            xhr.open('POST', '/result', true);
+            xhr.open('POST', '/generate_report', true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    const companies = [
+                    {'name': "HapSeng AAR (1).pdf", 'sector': "Industrial Products and Service", 'market': "-"},
+                    {'name': "genting.pdf", 'sector': "Consumer Products and Service", 'market': "-"},
+                    {'name': "IGBB Audited Financial Statements FY2020 (part 1).pdf", 'sector': "Property3", 'market': "-"},
+                    {'name': "malpac AAR (1).pdf", 'sector': "Plantation", 'market': "-"},
+                    {'name': "wce AAR (1).pdf", 'sector': "Construction", 'market': "-"},
+                    {'name': "supermax AAR.pdf", 'sector': "Health care", 'market': "-"},
+                    {'name': "bumi AAR.pdf", 'sector': "Energy", 'market': "-"}
+                    ];       
+
+
+                    // Parse JSON response
+                    var response = JSON.parse(xhr.responseText);
+                    
+                    // Access financial_metrics and condition_fulfilled from response
+
+                    var classified = response.classified;
+                    var financial_metrics = response.financial_metrics;
+                    var condition_fulfilled = response.condition_fulfilled;
+                    //var sector=financial_metrics.sector;
+                    //var market=financial_metrics.market;
+                    
+                    
+                    
+                    // Now you can use the financial_metrics and condition_fulfilled data as needed
+                    console.log("heloo");
+                    console.log('Classified:', classified);
+                    console.log('Financial Metrics:', financial_metrics['Cash and Cash Equivalent Amount']);
+                    console.log('Condition Fulfilled:', condition_fulfilled);
+                    console.log('testing', financial_metrics['Cash and Cash Equivalent Amount']);
+                    console.log(response);
+                    console.log(market);
+
+                    //document.getElementById('group-revenue').textContent = financial_metrics['Group Revenue'];
+                    document.getElementById('sector').textContent = sector;
+                    document.getElementById('market').textContent = market;
+                    document.getElementById('companyname').textContent = financial_metrics['Company Name'];
+                    document.getElementById('companyname2').textContent = financial_metrics['Company Name'];
+                    document.getElementById('financialyearend').textContent = financial_metrics['Financial Year End'];
+                    document.getElementById('GroupRevenue').textContent = financial_metrics['Revenue'];
+                    document.getElementById('ProfitLossBeforeTax').textContent = financial_metrics['Profit Loss Before Tax'];
+                    document.getElementById('TotalAssets').textContent = financial_metrics['Total Assets'];
+                    document.getElementById('TotalCashRatio').textContent = financial_metrics['Total Cash Ratio'];
+                    document.getElementById('TotalCashAmount').textContent = financial_metrics['Total Cash Amount'];
+                    document.getElementById('CashandCashEquivalentRatio').textContent = financial_metrics['Cash and Cash Equivalent Ratio'];
+                    document.getElementById('CashandCashEquivalentAmount').textContent = financial_metrics['Cash and Cash Equivalent Amount'];
+                    document.getElementById('TotalDebtRatio').textContent = financial_metrics['Total Debt Ratio'];
+                    document.getElementById('TotalDebtAmount').textContent = financial_metrics['Total Debt Amount'];
+                    document.getElementById('LoanandBorrowingRatio').textContent = financial_metrics['Loan and Borrowing Ratio'];
+                    document.getElementById('LoanandBorrowingRatioAmount').textContent = financial_metrics['Loan and Borrowing Amount'];
+                    document.getElementById('LeaseLiabilityRatio').textContent = financial_metrics['Lease Liability Ratio'];
+                    document.getElementById('LeaseLiabilityAmount').textContent = financial_metrics['Lease Liability Amount'];
+                    document.getElementById('conditionfulfilled').textContent = condition_fulfilled;
+                    document.getElementById('conditionfulfilled2').textContent = condition_fulfilled;
+                    document.getElementById('conditionfulfilled3').textContent = condition_fulfilled;
+                    document.getElementById('conditionfulfilled4').textContent = condition_fulfilled;
+                    
+
+                    console.log('testing', financial_metrics['Cash and Cash Equivalent Amount']);
+
+
+                    
+
+                    // Example: Update the HTML content of an element with the financial metrics
+                    // document.getElementById('financial-metrics').innerHTML = JSON.stringify(financial_metrics);
+                } else {
+                    window.alert('Error generating report: ' + xhr.responseText);
+                }
+            };
+            xhr.onerror = function () {
+                // Handle network errors
+                console.error('Network error occurred while generating report');
+            };
+            xhr.send(formData);
+            
+            // You can continue with other functionality here if needed
+            // ...
+        } else {
+            // If no file is selected, display an error message
+            console.log("No file selected");
+            // You can alert the user or handle the error in any other way
+        }
+    }
+
+    function downloadPDF() {
+        // Get the HTML content of the screening report
+        var reportContent = document.getElementById("screening-report").innerHTML;
+
+        // Create a new window to open the PDF in
+        var win = window.open('', '_blank');
+
+        // Write the HTML content to the new window
+        win.document.write('<html><head><title>Screening Report</title></head><body>');
+        win.document.write(reportContent);
+        win.document.write('</body></html>');
+
+        // Close the document
+        win.document.close();
+
+        // Convert the HTML content to PDF
+        win.print();
+    }
+</script>
+
+{% endblock %}
+
+<!-- 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script>
+    function downloadPDF() {
+        var element = document.getElementById('screening-report');
+        html2pdf().from(element).save();
+    }
+</script>
+ -->

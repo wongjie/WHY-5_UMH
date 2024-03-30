@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_login.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+            <div class="welcome-text">
+                <p>Nice to see you again</p>
+                <h1><span class="welcome-color">Welcome Back</span></h1>
+            </div>
+            <img src="{{ url_for('static', filename='LandingImage.png') }}" alt="Picture" style="width: 300px">
+        </div>
+        <div class="right-side">
+            <div class="header">
+                <h2>Log In</h2>
+                <p>Log in with the data provided by your company</p>
+            </div>
+            <form class="login-form" action="/login" method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="keep-login" name="keep-login">
+                    <label for="keep-login">Keep me logged in</label>
+                </div>
+                <button type="submit">Log In</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

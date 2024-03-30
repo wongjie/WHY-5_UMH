@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_about.css') }}">
+</head>
+<!-- Header -->
+<header style="text-align: left;">
+    <h1>About Shariah-Compliant Criteria</h1>
+</header>
+<body>
+    <p style="margin-left:20px">There are 2 main benchmarks used to determine whether a company is Shariah-Compliant:</p>
+    <div class="container">
+        <div class="container2">
+        <h2>1. Business Activities Benchmarks</h2>
+        <div class="group">
+            <div class="criteria">
+                <h3>1.1 The 5% Benchmark</h3>
+                <p style="text-align: justify;">The revenue earned from the following activities should not exceed 5% of the company's total revenue.<br>- conventianal banking and lending<br>- conventional insurance<br>- gambling<br>- liquor and liquor-related activities<br>- non-halal food and beverages<br>- tobacco and tobacco-related activities<br>- other activities deemed non-compliant according to Shariah principles as determined by the SAC</p>
+            </div>
+            <div class="criteria">
+                <h3>1.2 The 20% Benchmark</h3>
+                <p style="text-align: justify;">The renvenue earned from the following activities should not exceeed 20% of the company's total revenue.<br>- share trading<br>- stockbroking business<br>- rental received from Shariah non-compliant activities<br>- other activities deemed non-compliant according to Shariah principles as determined by the SAC</p>
+            </div>
+        </div>
+        </div>
+        <div class="container2">
+        <h2>2. Financial Ratio Benchmarks</h2>
+        <div class="group">
+            <div class="criteria">
+                <h3>2.1 Cash / Total Asset</h3>
+                <p style="text-align: justify;">The amount of cash must not be more than 33% compared to the company's total assets excluding:<br>- cash placed in Islamic Accounts<br>- cash placed in Islamic Instruments</p>
+            </div>
+            <div class="criteria">
+                <h3>2.2 Debt / Total Asset</h3>
+                <p style="text-align: justify;">The amount of debt must not be more than 33% compared to the company's total assets excluding:<br>- Islamic Financing<br>- Sukuk</p>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="{{ url_for('static', filename='darkmode.js') }}"></script>
+{% endblock %}

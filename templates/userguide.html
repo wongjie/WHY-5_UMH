@@ -1,0 +1,80 @@
+{% extends 'layout.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add your CSS links here -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add custom CSS for positioning the image */
+        .step-frame {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .step-image {
+            width: 200px; /* Adjust the width of the image as needed */
+            margin-left: 20px; /* Add margin to create space between text and image */
+        }
+    
+        
+        /* Add custom CSS for centering the "User Guide" heading */
+        header {
+            text-align: center;
+        }
+    
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header style="text-align: left;">
+    <h1>User Guide</h1>
+</header>
+
+<!-- Main Content -->
+<main>
+    <h2>How to Determine Shariah Compliance of Public-Listed Companies</h2>
+    <p>Unlock the power of our platform to evaluate whether public-listed companies align with Shariah principles. Follow these simple steps:</p>
+
+    <!-- Step 1: Searching for Audited Reports -->
+    <div class="step-frame">
+        <div class="step-image">
+            <img src="{{ url_for('static', filename='step1_image.png') }}" alt="Step 1" style="max-width: 130px; height: auto;">
+        </div>
+        <div class="step-text">
+            <h3>Step 1: Find Audited Account Reports</h3>
+            <p>Start by searching for your desired company's audited reports in our repository. It's as easy as typing in the company name or ticker symbol!</p>
+        </div>
+    </div>
+
+    <!-- Step 2: Uploading the Audited Report -->
+    <div class="step-frame">
+        <div class="step-image">
+            <img src="{{ url_for('static', filename='step2_image.png') }}" alt="Step 2" style="max-width: 120px; height: auto;">
+        </div>
+        <div class="step-text">
+            <h3>Step 2: Upload the Report</h3>
+            <p>Next, upload the audited report you found. Our platform's smart technology will swiftly extract relevant data from it.</p>
+        </div>
+    </div>
+
+    <!-- Step 3: Analyzing the Report -->
+    <div class="step-frame">
+        <div class="step-image">
+            <img src="{{ url_for('static', filename='step3_image.png') }}" alt="Step 3" style="max-width: 130px; height: auto;">
+        </div>
+        <div class="step-text">
+            <h3>Step 3: Get Instant Analysis</h3>
+            <p>Sit back and relax as our platform generates a comprehensive analysis report. Discover whether the company adheres to Shariah principles and gain detailed insights.</p>
+        </div>
+    </div>
+</main>
+
+<script src="{{ url_for('static', filename='darkmode.js') }}"></script>
+
+
+{% endblock %}
